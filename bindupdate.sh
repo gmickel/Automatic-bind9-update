@@ -38,20 +38,20 @@ else
   echo -e "\E[33;40m Adding null zone file [*]\e[0m"
   touch /etc/bind/null.zone.file
   cat > /etc/bind/null.zone.file <<EOF
-  $TTL    86400   ; one day
+$TTL    86400   ; one day
 
-  @       IN      SOA     ns0.example.net.      hostmaster.example.net. (
-                         2002061000       ; serial number YYMMDDNN
-                         28800   ; refresh  8 hours
-                         7200    ; retry    2 hours
-                         864000  ; expire  10 days
-                         86400 ) ; min ttl  1 day
-                 NS      ns0.example.net.
-                 NS      ns1.example.net.
+@       IN      SOA     ns0.example.net.      hostmaster.example.net. (
+                       2002061000       ; serial number YYMMDDNN
+                       28800   ; refresh  8 hours
+                       7200    ; retry    2 hours
+                       864000  ; expire  10 days
+                       86400 ) ; min ttl  1 day
+               NS      ns0.example.net.
+               NS      ns1.example.net.
 
-                 A       127.0.0.1
+               A       127.0.0.1
 
-  *               IN      A       127.0.0.1
+*               IN      A       127.0.0.1
 
 EOF
   read -p "Add to Cron? . (y/n) " REPLY
